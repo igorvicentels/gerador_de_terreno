@@ -7,18 +7,18 @@
 #include "io.h"
 
 int main(int argc, char* argv[]) {
-  int* vetor; // Vetor para armazenar altura de cada barra
+  int* vetor; // Vetor para armazenar o contorno do terreno
   int max_var = 2; // Variavel com a variação maxima da altitude (inicializada com com um valor padrão)
   char arquivo[64]; // Variável com o nome do arquivo de imagem a ser gerado
   int dimx = 1280; // Lagura da imagem
   int dimy = 720; // Altura da imagem
-  int max_alt; // Altura máxima para as barras das extremidades
-  int min_alt; // Altura minima para as barras das extremidades
+  int max_alt; // Altitude máxima para as extremidades
+  int min_alt; // Altitude mínima para as extremidades
 
   // Atribui um nome padrão para a imagem a ser gerada
   sprintf(arquivo, "%s", "terreno.ppm");
 
-  // Lê os parametros de entrada da linha de comando (veriação da altura, nome do arquivo gerado e dimensões da imagem)
+  // Lê os parametros de entrada da linha de comando (veriação da altitude, nome do arquivo gerado e dimensões da imagem)
   for (int i = 0; i < argc; i++) {
     if (strcmp(argv[i], "-d") == 0) {
       max_var = atoi(argv[i + 1]);
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
   /* srand(time(NULL)); */
   srand(4);
   
-  // Calcula o valor das alturas dos vetores das pontas
+  // Define altitudes nas extremidades aleatóriamente
   max_alt = (int) dimy * 0.8;
   min_alt = (int) dimy * 0.3;
   do {
@@ -51,7 +51,6 @@ int main(int argc, char* argv[]) {
     vetor[dimx - 1] = rand() % max_alt;
   } while (vetor[dimx - 1] < min_alt);
   
-
   //prints de teste
   printf("dimx: %d\n", dimx);
   printf("dimy: %d\n", dimy);
@@ -61,7 +60,7 @@ int main(int argc, char* argv[]) {
   printf("vetor[0]: %d\n", vetor[0]);
   printf("vetor[dimx - 1]: %d\n", vetor[dimx - 1]);
 
-  // Calcula valores do vetor das alturas
+  // Calcula os valores do vetor de contorno
   gera_terreno(vetor, 0, dimx - 1, max_var);
 
   // Gera arquivo de imagem

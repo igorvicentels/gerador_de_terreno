@@ -3,7 +3,7 @@
 
 #include "definitions.h"
 
-// Cria imagem a partir do vetor de altitude do contorno (Adaptado de https://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#C)
+// Cria imagem a partir do vetor de altitudes do contorno (Adaptado de https://rosettacode.org/wiki/Bitmap/Write_a_PPM_file#C)
 void cria_imagem(int dimx, int dimy, int vetor[], char arquivo[]) {
     FILE *fp = fopen(arquivo, "wb");
     fprintf(fp, "P6\n%d %d\n255\n", dimx, dimy);
