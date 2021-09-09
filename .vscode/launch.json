@@ -12,7 +12,7 @@
       "program": "c:\\Users\\igorv\\Documents\\ITP - Projeto\\gerador_de_terreno\\build\\Debug\\outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
+      "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
       "externalConsole": false,
       "setupCommands": [
         {

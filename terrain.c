@@ -8,10 +8,11 @@
 
 int main(int argc, char* argv[]) {
   int* vetor; // Vetor para armazenar o contorno do terreno
-  int max_var = 2; // Variavel com a variação maxima da altitude (inicializada com com um valor padrão)
+  int* vetor2;
   char arquivo[64]; // Variável com o nome do arquivo de imagem a ser gerado
   int dimx = 1280; // Lagura da imagem
   int dimy = 720; // Altura da imagem
+  int max_var = (int) dimy * 0.10; // Variavel com a variação maxima da altitude
   int max_alt; // Altitude máxima para as extremidades
   int min_alt; // Altitude mínima para as extremidades
 
@@ -25,7 +26,7 @@ int main(int argc, char* argv[]) {
       i++;
     }
     if (strcmp(argv[i], "-o") == 0) {
-      sprintf(arquivo, "%s.ppm", argv[i + 1]);
+      sprintf(arquivo, "%s", argv[i + 1]);
       i++;
     }
     if (strcmp(argv[i], "-s") == 0) {
@@ -50,7 +51,13 @@ int main(int argc, char* argv[]) {
   do {
     vetor[dimx - 1] = rand() % max_alt;
   } while (vetor[dimx - 1] < min_alt);
-  
+
+  // Calcula os valores do vetor de contorno
+  gera_terreno(vetor, 0, dimx - 1, max_var);
+
+  // Gera arquivo de imagem
+  cria_imagem(dimx, dimy, vetor, arquivo);
+
   //prints de teste
   printf("dimx: %d\n", dimx);
   printf("dimy: %d\n", dimy);
@@ -59,12 +66,5 @@ int main(int argc, char* argv[]) {
   printf("arquivo: %s\n", arquivo);
   printf("vetor[0]: %d\n", vetor[0]);
   printf("vetor[dimx - 1]: %d\n", vetor[dimx - 1]);
-
-  // Calcula os valores do vetor de contorno
-  gera_terreno(vetor, 0, dimx - 1, max_var);
-
-  // Gera arquivo de imagem
-  cria_imagem(dimx, dimy, vetor, arquivo);
-
   return 0;
 }

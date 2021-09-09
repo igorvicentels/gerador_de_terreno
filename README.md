@@ -10,11 +10,12 @@ Falta:
 Checar se os valores inseridos na linha de comando são adequados
 Criar tipos
 Verificar o que seria essa geração de gradientes (blur?)
+Ajustar a inicialização da variavel max_var
 
 Duvidas:
-A geração do terreno ta sendo feita do jeito certo?
 Como checar se os comando digitados na linha de comando são adequados?
 P3 ou P6?
 
-
+Autor:
+Igor Vicente Lourenço Silva
 

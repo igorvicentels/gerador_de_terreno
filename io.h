@@ -1,1 +1,1 @@
-void cria_imagem(int dimx, int dimy, int vetor[], char arquivo[]);
+void cria_imagem(int dimx, int dimy, int* vetor, char arquivo[]);
