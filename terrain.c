@@ -38,8 +38,8 @@ int main(int argc, char* argv[]) {
   vetor = malloc(sizeof(int) * dimx);
   
   // Gera o seed
-  /* srand(time(NULL)); */
-  srand(4);
+  srand(time(NULL));
+  //srand(4);
   
   // Define altitudes nas extremidades aleatóriamente
   max_alt = (int) dimy * 0.8;
