@@ -8,7 +8,7 @@ void cria_imagem(int dimx, int dimy, int* vetor, char arquivo[]) {
     FILE *fp = fopen(arquivo, "wb");
     fprintf(fp, "P6\n%d\n%d\n255\n", dimx, dimy);
     
-    BITMAPPIXELS (*image)[dimx] = calloc(dimy, dimx * sizeof(BITMAPPIXELS));
+    Pixel (*image)[dimx] = calloc(dimy, dimx * sizeof(Pixel));
 
     for (int i = 0; i < dimy; i++) {
         for (int j = 0; j < dimx; j++) {
@@ -22,7 +22,7 @@ void cria_imagem(int dimx, int dimy, int* vetor, char arquivo[]) {
                 image[i][j].blue = 235; 
             }
         }
-        fwrite(image[i], sizeof(BITMAPPIXELS), dimx, fp);
+        fwrite(image[i], sizeof(Pixel), dimx, fp);
     }
     (void) fclose(fp);
 }

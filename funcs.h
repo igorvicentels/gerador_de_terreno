@@ -1,1 +1,1 @@
-void gera_terreno (int* vetor, int i, int f, int max_var);
+void gera_contorno (int* vetor, int i, int f, int max_var);

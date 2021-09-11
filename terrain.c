@@ -57,7 +57,7 @@ int main(int argc, char* argv[]) {
   } while (vetor[dimx - 1] < min_alt);
 
   // Calcula os valores do vetor de contorno
-  gera_terreno(vetor, 0, dimx - 1, max_var);
+  gera_contorno(vetor, 0, dimx - 1, max_var);
 
   // Gera arquivo de imagem
   cria_imagem(dimx, dimy, vetor, arquivo);
