@@ -24,7 +24,6 @@ void cria_imagem(int dimx, int dimy, int* vetor, char arquivo[]) {
         }
         fwrite(image[i], sizeof(BITMAPPIXELS), dimx, fp);
     }
-
     (void) fclose(fp);
 }
 

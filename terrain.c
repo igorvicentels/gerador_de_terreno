@@ -5,34 +5,39 @@
 
 #include "funcs.h"
 #include "io.h"
+#include "definitions.h"
 
 int main(int argc, char* argv[]) {
   int* vetor; // Vetor para armazenar o contorno do terreno
-  int* vetor2;
   char arquivo[64]; // Variável com o nome do arquivo de imagem a ser gerado
   int dimx = 1280; // Lagura da imagem
   int dimy = 720; // Altura da imagem
   int max_var = (int) dimy * 0.10; // Variavel com a variação maxima da altitude
   int max_alt; // Altitude máxima para as extremidades
   int min_alt; // Altitude mínima para as extremidades
+  int sent = 0; // Variável para checar se o usuário escolheu uma max_var diferente do valor padrão
 
   // Atribui um nome padrão para a imagem a ser gerada
   sprintf(arquivo, "%s", "terreno.ppm");
 
   // Lê os parametros de entrada da linha de comando (veriação da altitude, nome do arquivo gerado e dimensões da imagem)
   for (int i = 0; i < argc; i++) {
-    if (strcmp(argv[i], "-d") == 0) {
+    if (strcmp(argv[i], "-d") == 0 && atoi(argv[i + 1])) {
       max_var = atoi(argv[i + 1]);
+      sent = 1;
       i++;
     }
     if (strcmp(argv[i], "-o") == 0) {
       sprintf(arquivo, "%s", argv[i + 1]);
       i++;
     }
-    if (strcmp(argv[i], "-s") == 0) {
+    if (strcmp(argv[i], "-s") == 0 && atoi(argv[i + 1]) && atoi(argv[i + 2])) {
       dimx = atoi(argv[i + 1]);
-      dimy = atoi(argv[i + 1]) * 9 / 16;
+      dimy = atoi(argv[i + 2]);
       i++;
+      if (sent == 0) {
+        max_var = (int) (dimy * 0.1);
+      }
     }
   }
 
@@ -40,7 +45,6 @@ int main(int argc, char* argv[]) {
   
   // Gera o seed
   srand(time(NULL));
-  //srand(4);
   
   // Define altitudes nas extremidades aleatóriamente
   max_alt = (int) dimy * 0.8;
