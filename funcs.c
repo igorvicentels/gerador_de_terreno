@@ -13,6 +13,7 @@ void gera_contorno (int* vetor, int i, int f, int max_var) {
   }
 }
 
+// Atribui a cor definida para o céu para todos os pixels 
 void inicializa_bitmap(int dimx, int dimy, Pixel** imagem) {
   for (int i = 0; i < dimy; i++) {
     for (int j = 0; j < dimx; j++) {
@@ -23,6 +24,7 @@ void inicializa_bitmap(int dimx, int dimy, Pixel** imagem) {
   }
 }
 
+// Modifica a matrix de pixels a partir do vetor de contorno
 void gera_bitmap(int dimx, int dimy, int* vetor, Pixel** imagem, int k) {
   int red;
   int green;
@@ -42,5 +44,14 @@ void gera_bitmap(int dimx, int dimy, int* vetor, Pixel** imagem, int k) {
       } 
     }
   }
+}
+
+void usage () {
+  printf("Instrucoes do programa:\n");
+  printf("-d: indica a variacao inicial para o ponto do meio do vetor de contorno\n");
+  printf("-o: indica o nome do arquivo (deve terminar com .ppm)\n");
+  printf("-s: indica as dimensoes da imagem (larguraXaltura)\n");
+  printf("-c: indica o numero de camadas de terreno a ser gerada (entre 1 e 3)\n");
+  printf("Ex.: ./terrain -d 100 -o terreno.ppm -s 1500X500 -c 2\n");
 }
 

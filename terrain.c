@@ -25,26 +25,42 @@ int main(int argc, char* argv[]) {
 
   // Lê os parametros de entrada da linha de comando (veriação da altitude, nome do arquivo gerado e dimensões da imagem)
   for (int i = 0; i < argc; i++) {
-    if (strcmp(argv[i], "-d") == 0 && atoi(argv[i + 1])) {
-      max_var = atoi(argv[i + 1]);
-      sent = 1;
-      i++;
+    if (strcmp(argv[i], "-d") == 0) {
+      if (atoi(argv[i + 1])) {
+        max_var = atoi(argv[i + 1]);
+        sent = 1;
+        i++;
+      } else {
+        usage();
+        exit(-1);
+      }
     }
+
     if (strcmp(argv[i], "-o") == 0) {
       sprintf(arquivo, "%s", argv[i + 1]);
       i++;
     }
-    if (strcmp(argv[i], "-c") == 0 && atoi(argv[i + 1])) {
-      camadas = atoi(argv[i + 1]);
-      i++;
-    }
-    if (strcmp(argv[i], "-s") == 0 && atoi(argv[i + 1]) && atoi(argv[i + 2])) {
-      dimx = atoi(argv[i + 1]);
-      dimy = atoi(argv[i + 2]);
-      i++;
-      if (sent == 0) {
-        max_var = (int) (dimy * 0.1);
+
+    if (strcmp(argv[i], "-c") == 0) {
+      if (atoi(argv[i + 1]) >= 1 && atoi(argv[i + 1]) <= 3) {
+        camadas = atoi(argv[i + 1]);
+        i++;
+      } else {
+        usage();
+        exit(-1);
       }
+    }
+
+    if (strcmp(argv[i], "-s") == 0) {
+      if (sscanf(argv[i + 1], "%dX%d", &dimx, &dimy) == 2) {
+        i++;
+        if (sent == 0) {
+          max_var = (int) (dimy * 0.1);
+        }
+      } else {
+        usage();
+        exit(-1);
+      } 
     }
   }
 
