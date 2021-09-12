@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "cwd": "c:\\Users\\igorv\\Documents\\ITP - Projeto\\gerador_de_terreno",
       "environment": [],
-      "program": "c:\\Users\\igorv\\Documents\\ITP - Projeto\\gerador_de_terreno\\build\\Debug\\outDebug",
+      "program": "${workspaceFolder}/terrain.exe",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
       "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",

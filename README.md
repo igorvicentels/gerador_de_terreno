@@ -25,9 +25,9 @@ make all
 -o -d -s
 ```
 
--o <arquivo>: nome do arquivo
--d <num>: deslocamento máximo do ponto médio (quanto maior esse valor mais acidentado será o terreno)
--s <num> <num>: dimensões da imagem gerada
+* -o <arquivo>: nome do arquivo
+* -d <num>: deslocamento máximo do ponto médio (quanto maior esse valor mais acidentado será o terreno)
+* -s <num> <num>: dimensões da imagem gerada
 
 #### Exemplo de uso
 
@@ -38,11 +38,15 @@ O comando acima gerará um arquivo de imagem nomeado "terreno.ppm", no formato 1
 
 Caso o usuário não utilize esses argumentos, o programa usará os seguintes valores padrão:
 
-*nome: terreno.ppm
+* nome: terreno.ppm
 
-*dimensões da imagem: 1280 x 720
+* dimensões da imagem: 1280 x 720
 
-*deslocamento máximo: 10% da altura da imagem
+* deslocamento máximo: 10% da altura da imagem
+
+
+
+
 
 
 
