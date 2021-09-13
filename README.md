@@ -59,13 +59,8 @@ funcs.h -> assinatura das funções usadas em funcs.c
 difinitions.h -> definições de tipos
 
 Falta:
-Checar se os valores inseridos na linha de comando são adequados
-Criar tipos
-Verificar o que seria essa geração de gradientes (blur?)
 
 Duvidas:
-Como checar se os comando digitados na linha de comando são adequados?
-P3 ou P6?
 
 Autor:
 Igor Vicente Lourenço Silva
