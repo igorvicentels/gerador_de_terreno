@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-#include <math.h>
 
 #include "funcs.h"
 #include "io.h"
@@ -91,7 +90,7 @@ int main(int argc, char *argv[]) {
 
 	for (int k = 0; k < camadas; k++) {
 		// Define altitudes nas extremidades aleatóriamente
-		max_alt = (int)(dimy * pow(0.7, k + 1));
+		max_alt = (int)(dimy * (0.7 - 0.2 * k));
 		min_alt = (int)(dimy * (0.4 - 0.1 * k));
 		do {
 			vetor[0] = rand() % max_alt;
