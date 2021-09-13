@@ -49,13 +49,13 @@ void gera_bitmap(int dimx, int dimy, int *vetor, Pixel **imagem, int k, char cor
 		switch (k) {
 			case 0: red = 46; green = 139; blue = 87; break;
 			case 1: red = 0; green = 110; blue = 0; break;
-			case 2: red = 31; green = 61; blue = 12; break;
+			case 2: red = 15; green = 30; blue = 6; break;
 		}
 	}
 	else {
 		switch (k) {
-			case 0: red = 60; green = 82; blue = 120; break;
-			case 1: red = 29; green = 41; blue = 81; break;
+			case 0: red = 29; green = 41; blue = 81; break;
+			case 1: red = 12; green = 20; blue = 6; break;
 			case 2: red = 0; green = 10; blue = 20; break;
 		}
 	}
@@ -78,6 +78,6 @@ void usage() {
 	printf("-o: indica o nome do arquivo de imagem a ser gerrado (deve terminar com .ppm)\n");
 	printf("-s: indica as dimensoes da imagem (larguraXaltura)\n");
 	printf("-c: indica o numero de camadas de terreno a ser gerada (entre 1 e 3)\n");
-	printf("-n: indica que o padrão de cores deve ser alterado de dia para noite");
+	printf("-n: indica que o padrão de cores deve ser alterado de dia para noite\n");
 	printf("Ex.: ./terrain -d 100 -o terreno.ppm -s 1500X500 -c 2 -n\n");
 }

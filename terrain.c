@@ -13,11 +13,11 @@ int main(int argc, char *argv[]) {
 	char arquivo[64];				// Variável com o nome do arquivo de imagem a ser gerado
 	int dimx = 1280;				// Lagura da imagem
 	int dimy = 720;					// Altura da imagem
-	int max_var = (int)dimy * 0.10; // Variavel com a variação maxima da altitude
+	int max_var = (int)dimy * 0.20; // Variavel com a variação maxima da altitude
 	int max_alt;					// Altitude máxima para as extremidades
 	int min_alt;					// Altitude mínima para as extremidades
 	int sent = 0;					// Variável para checar se o usuário escolheu uma max_var diferente do valor padrão
-	int camadas = 1;				// Número de camadas de terreno gerados
+	int camadas = 3;				// Número de camadas de terreno gerados
 	Pixel **imagem;					// Matriz que armazena os valores de vermelho, verde e azul de cada pixel
 	char cores[6];                  // Variável que indica se o esquema de cores deve ser noite ou dia
 
@@ -63,7 +63,7 @@ int main(int argc, char *argv[]) {
 			if (sscanf(argv[i + 1], "%dX%d", &dimx, &dimy) == 2) {
 				i++;
 				if (sent == 0) {
-					max_var = (int)(dimy * 0.1);
+					max_var = (int)(dimy * 0.2);
 				}
 			}
 			else {
@@ -109,17 +109,6 @@ int main(int argc, char *argv[]) {
 
 	// Gera arquivo de imagem
 	cria_imagem(dimx, dimy, arquivo, imagem);
-
-	//prints de teste
-	printf("dimx: %d\n", dimx);
-	printf("dimy: %d\n", dimy);
-	printf("camadas: %d\n", camadas);
-	printf("max_alt: %d\n", max_alt);
-	printf("max_var: %d\n", max_var);
-	printf("arquivo: %s\n", arquivo);
-	printf("vetor[0]: %d\n", vetor[0]);
-	printf("vetor[dimx - 1]: %d\n", vetor[dimx - 1]);
-	printf("cores: %s\n", cores);
 
 	return 0;
 }
