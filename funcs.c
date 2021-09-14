@@ -76,7 +76,7 @@ void usage() {
 	printf("Instrucoes do programa:\n");
 	printf("-d: indica a deslocamento maximo para o ponto do meio do vetor de contorno\n");
 	printf("-o: indica o nome do arquivo de imagem a ser gerrado (deve terminar com .ppm)\n");
-	printf("-s: indica as dimensoes da imagem (larguraXaltura, o X deve se maiusculo)\n");
+	printf("-s: indica as dimensoes da imagem (larguraXaltura)\n");
 	printf("-c: indica o numero de camadas de terreno a ser gerada (entre 1 e 3)\n");
 	printf("-n: indica que o padrão de cores deve ser alterado de dia para noite\n");
 	printf("Ex.: ./terrain -d 100 -o terreno.ppm -s 1500X500 -c 2 -n\n");

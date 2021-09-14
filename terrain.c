@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
 	strcpy(cores, "dia");
 
 	/*Lê os parametros de entrada da linha de comando 
-	(veriação da altitude, nome do arquivo gerado, número de camadas, dimensões da imagem e esquema de cores)*/
+	(variação da altitude, nome do arquivo gerado, número de camadas, dimensões da imagem e esquema de cores)*/
 	for (int i = 0; i < argc; i++) {
 		// Lê valor do deslocamento aleatório máximo do ponto medio e verifica se o valor inserido é valido
 		if (strcmp(argv[i], "-d") == 0) {
@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
 			sprintf(arquivo, "%s", argv[i + 1]);
 			i++;
 		}
-		// Lê número de camadas de cadeias de montanhas a ser geradas e verifica se o valor insrrido é valido
+		// Lê número de camadas de cadeias de montanhas a ser geradas e verifica se o valor inserido é valido
 		if (strcmp(argv[i], "-c") == 0) {
 			if (atoi(argv[i + 1]) >= 1 && atoi(argv[i + 1]) <= 3) {
 				camadas = atoi(argv[i + 1]);
@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
 		}
 		// Lê dimensões do arquivo de imagem as ser gerado e verifica se o valor inserido é valido
 		if (strcmp(argv[i], "-s") == 0) {
-			if (sscanf(argv[i + 1], "%dX%d", &dimx, &dimy) == 2) {
+			if (sscanf(argv[i + 1], "%dX%d", &dimx, &dimy) == 2 || sscanf(argv[i + 1], "%dx%d", &dimx, &dimy) == 2) {
 				i++;
 				if (sent == 0) {
 					max_var = (int)(dimy * 0.2);
@@ -76,6 +76,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 
+	// Aloca vetor que armazena o contorno do terreno
 	vetor = malloc(sizeof(int) * dimx);
 
 	// Gera o seed
@@ -86,6 +87,7 @@ int main(int argc, char *argv[]) {
 	for (int i = 0; i < dimy; i++)
 		imagem[i] = malloc(sizeof(Pixel) * dimx);
 
+	// Atribui a cor definida para o céu para todos os pixels
 	inicializa_bitmap(dimx, dimy, imagem, cores);
 
 	for (int k = 0; k < camadas; k++) {
