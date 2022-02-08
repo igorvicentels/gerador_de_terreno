@@ -1,6 +1,6 @@
-# Gerador de terreno
+# Prjeto final de ITP
 
-Gerador de terreno é uma ferramenta que gera a imagem (em formato PPM) de um terreno com a utilização do método do deslocamento do ponto do meio
+O projeto consiste em uma ferramenta que gera a imagem (em formato PPM) de um terreno com a utilização do método do deslocamento do ponto do meio.
 
 ## O que foi feito
 
